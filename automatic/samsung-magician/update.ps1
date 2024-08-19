@@ -42,6 +42,7 @@ function global:au_BeforeUpdate {
     $Latest.Checksum32 = Get-FileHash $file_path -Algorithm $Algorithm | ForEach-Object Hash
     $Latest.ChecksumType32 = $Algorithm
     $Latest.FileName32 = $file_name
+    Remove-Item -Force $file_path
 
   } catch {
     throw $_
